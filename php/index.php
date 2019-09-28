@@ -23,9 +23,10 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<h4 class="text-info" style="text-align: center;font-weight: bold;">Student information</h4>
-	<div class="container" style="width: 50%;border: 2px solid green;padding: 30px;">
-		<form name="StudentForm" method="post">
+	
+	<div class="container" style="width: 60%;border: 2px solid green;padding: 30px;">
+		<button type="button" class="btn btn-success btn-lg btn-block" style="text-align: center;font-weight: bold;">Student information</button>
+		<form name="StudentForm" method="post" style="margin-top: 20px;">
 			<div class="form-group">
 				<div class="row">
 				<div class="col-md-6">
