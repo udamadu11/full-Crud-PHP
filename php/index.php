@@ -108,7 +108,60 @@ if (isset($_POST['submit'])) {
 </html>
 <?php 
 if (isset($_POST['submit2'])) {
-	
+	$delete = $_POST['delete'];
+	$sql3 = "DELETE FROM stu WHERE id= $delete";
+	$result3 = mysqli_query($con,$sql3);
+	if ($result3) {
+		echo "<script>alert('Successfully Deleted')</script>";
+		echo "<script>window.open('index.php','_self')</script>";
+	}
+}
+
+if (isset($_POST['submit1'])) {
+	$edit = $_POST['edit'];
+	$sql4 = "SELECT * FROM stu";
+	$result4 = mysqli_query($con,$sql4);
+	while ($row1 = mysqli_fetch_array($result4)) {
+		echo "
+			<form name=\"StudentForm\" method=\"post\">
+			<div class=\"form-group\">
+				<div class=\"row\">
+				<div class=\"col-md-6\">
+				<label>Student Name</label>
+				<input type=\"text\" name=\"stuName\" class=\"form-control\">
+				</div>
+				<div class=\"col-md-6\">
+					<label>Gender</label>
+					<select class=\"form-control\" name=\"gender\">
+						<option value=\"M\">Male</option>
+						<option value=\"F\">Female</option>
+					</select>
+				</div>
+			</div>
+			</div>
+			<div class=\"form-group\">
+				<div class=\"row\">
+					<div class=\"col-md-4\">
+					<label>Econ</label>
+					<input type=\"number\" name=\"secon\" class=\"form-control\">
+				</div>
+				<div class=\"col-md-4\">
+					<label>Accounting</label>
+					<input type=\"number\" name=\"saccount\" class=\"form-control\">
+				</div>
+				<div class=\"col-md-4\">
+					<label>Bussiness</label>
+					<input type=\"number\" name=\"sBussiness\" class=\"form-control\">
+				</div>
+				</div>
+				
+			</div>
+			<div class=\"form-group\">
+				<input type=\"submit\" name=\"submit\" class=\"btn btn-success\" value=\"Add\" style=\"width: 100%;height: 40px;margin-top: 20px;\">
+			</div>
+			</fotm>
+		";
+	}
 }
 
 ?>
