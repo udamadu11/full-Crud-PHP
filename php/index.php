@@ -20,12 +20,14 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
 	<title>Full Crud</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 	<h4 class="text-info" style="text-align: center;font-weight: bold;">Student information</h4>
 	<div class="container" style="width: 50%;border: 2px solid green;padding: 30px;">
 		<form name="StudentForm" method="post">
 			<div class="form-group">
+				<div class="row">
 				<div class="col-md-6">
 				<label>Student Name</label>
 				<input type="text" name="stuName" class="form-control">
@@ -38,8 +40,10 @@ if (isset($_POST['submit'])) {
 					</select>
 				</div>
 			</div>
+			</div>
 			<div class="form-group">
-				<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-4">
 					<label>Econ</label>
 					<input type="number" name="secon" class="form-control">
 				</div>
@@ -51,6 +55,8 @@ if (isset($_POST['submit'])) {
 					<label>Bussiness</label>
 					<input type="number" name="sBussiness" class="form-control">
 				</div>
+				</div>
+				
 			</div>
 			<div class="form-group">
 				<input type="submit" name="submit" class="btn btn-success" value="Add" style="width: 100%;height: 40px;margin-top: 20px;">
@@ -78,6 +84,18 @@ if (isset($_POST['submit'])) {
       		 						<td>".$row['econ']."</td>
       		 						<td>".$row['accounting']."</td>
       		 						<td>".$row['bussiness']."</td>
+      		 						<td>
+      		 							<form method=\"post\">
+											<input type=\"hidden\" value=".$row['id']." name=\"edit\">
+											<input class=\"btn btn-success\" type=\"submit\" name=\"submit1\" value=\"Edit\">
+										</form>
+      		 						</td>
+      		 						<td>
+      		 							<form method=\"post\">
+											<input type=\"hidden\" value=".$row['id']." name=\"delete\">
+											<input class=\"btn btn-danger\" type=\"submit\" name=\"submit2\" value=\"Delete\">
+										</form>
+      		 						</td>
 
       							</tr>
       ";
@@ -88,3 +106,9 @@ if (isset($_POST['submit'])) {
 	</div>
 </body>
 </html>
+<?php 
+if (isset($_POST['submit2'])) {
+	
+}
+
+?>
