@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Full Crud Student Tabl</title>
+	<title>Full Crud Student Table</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -129,11 +129,11 @@ if (isset($_POST['submit1'])) {
 				<div class=\"row\">
 				<div class=\"col-md-6\">
 				<label>Student Name</label>
-				<input type=\"text\" name=\"stuName\" class=\"form-control\" value=\"{$row['stu_name']}\">
+				<input type=\"text\" name=\"EditstuName\" class=\"form-control\" value=\"{$row['stu_name']}\">
 				</div>
 				<div class=\"col-md-6\">
 					<label>Gender</label>
-					<select class=\"form-control\" name=\"gender\" value=\"{$row['gender']}\">
+					<select class=\"form-control\" name=\"Editgender\" value=\"{$row['gender']}\">
 						<option value=\"M\">Male</option>
 						<option value=\"F\">Female</option>
 					</select>
@@ -144,15 +144,15 @@ if (isset($_POST['submit1'])) {
 				<div class=\"row\">
 					<div class=\"col-md-4\">
 					<label>Econ</label>
-					<input type=\"number\" name=\"secon\" class=\"form-control\" value=\"{$row['econ']}\">
+					<input type=\"number\" name=\"Editsecon\" class=\"form-control\" value=\"{$row['econ']}\">
 				</div>
 				<div class=\"col-md-4\">
 					<label>Accounting</label>
-					<input type=\"number\" name=\"saccount\" class=\"form-control\" value=\"{$row['accounting']}\">
+					<input type=\"number\" name=\"Editsaccount\" class=\"form-control\" value=\"{$row['accounting']}\">
 				</div>
 				<div class=\"col-md-4\">
 					<label>Bussiness</label>
-					<input type=\"number\" name=\"sBussiness\" class=\"form-control\" value=\"{$row['bussiness']}\">
+					<input type=\"number\" name=\"EditsBussiness\" class=\"form-control\" value=\"{$row['bussiness']}\">
 				</div>
 				</div>
 				
@@ -169,20 +169,17 @@ if (isset($_POST['submit1'])) {
 
 if (isset($_POST['submit4'])) {
 	$uid = $_POST['EditID'];
-        $newFname = $_POST['EditFName'];
-        $newLname = $_POST['EditLName'];
-        $newUname = $_POST['EditUName'];
-        $newEmail = $_POST['EditEmail'];
-        $newTelephone = $_POST['EditTelephone'];
-        $newNic = $_POST['EditNic'];
-        $newPassword = $_POST['EditPassword'];
-        $newType = $_POST['EditType'];
+	$Newstu_name = $_POST['EditstuName'];
+	$Newstu_gender = $_POST['Editgender'];
+	$Newstu_Econ = $_POST['Editsecon'];
+	$Newstu_Acc = $_POST['Editsaccount'];
+	$Newstu_Bussi = $_POST['EditsBussiness'];
 
-        $EditQuery= "UPDATE employee SET f_name ='$newFname',l_name = '$newLname',u_name = '$newUname',email ='$newEmail',telephone ='$newTelephone',nic ='$newNic',password ='$newPassword',type ='$newType' WHERE id = '$uid' ";
+        $EditQuery= "UPDATE stu SET stu_name ='$Newstu_name', gender = '$Newstu_gender', econ = '$Newstu_Econ', accounting ='$Newstu_Acc', bussiness ='$Newstu_Bussi' WHERE id = '$uid' ";
         $sqlQuery = mysqli_query($con,$EditQuery);
         if ($sqlQuery) {
             echo "<script>alert('Successfuly Upadated...')</script>";
-            echo "<script>window.open('editUser.php','_self')</script>";
+            echo "<script>window.open('index.php','_self')</script>";
         }
 }
 
