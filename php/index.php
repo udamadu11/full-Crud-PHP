@@ -56,13 +56,6 @@ if (isset($_POST['submit'])) {
 				<input type="submit" name="submit" class="btn btn-success" value="Add" style="width: 100%;height: 40px;margin-top: 20px;">
 			</div>
 			<table class="table table-responsive table-hover">
-				<?php
-						$sql2 = "SELECT * stu";
-						$result2 = mysqli_query($con,$sql2);
-						while ($row = mysqli_fetch_array($result2)) {
-									<td>"$row[]"</td>
-							}		
-				?>
 				<tr>
 					<th>Student Id</th>
 					<th>Student Name</th>
@@ -71,9 +64,25 @@ if (isset($_POST['submit'])) {
 					<th>Accounting</th>
 					<th>Bussiness</th>
 				</tr>
-				<tr>
+					<?php
+						include ('connection.php');
+						$sql2 = "SELECT * FROM stu";
+						$result2 = mysqli_query($con,$sql2);
 
-				</tr>
+						while($row= mysqli_fetch_array($result2)){
+      						echo "
+      							 <tr>
+      		 						<td>".$row['id']."</td>
+      		 						<td>".$row['stu_name']."</td>
+      		 						<td>".$row['gender']."</td>
+      		 						<td>".$row['econ']."</td>
+      		 						<td>".$row['accounting']."</td>
+      		 						<td>".$row['bussiness']."</td>
+
+      							</tr>
+      ";
+      	}		
+				?>
 			</table>
 		</form>
 	</div>
